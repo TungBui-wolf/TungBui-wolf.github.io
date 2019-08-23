@@ -1,0 +1,91 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Happy Birthday My Girl</title>
+<meta name="description" content="Hiệu ứng trình diễn ảnh 3D đẹp mắt chỉ với HTML5 và CSS3" />
+<meta property="og:description" content="Hiệu ứng trình diễn ảnh 3D đẹp mắt chỉ với HTML5 và CSS3" />
+<meta property="og:image" content="https://redirect.nhq.vn/demo/screenshot.png" />
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/happy-birthday.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="javascript/js-happy-birthday.js"></script>
+<script type="text/javascript" src="javascript/js-snow.js"></script>
+<script type="text/javascript" src="javascript/js-canvas.js"></script>
+
+</head>
+<body onload="timedCount()">
+
+  <div class="panel">
+    <div class="audio"><audio id="player" controls autoplay><source src="#" type="audio/mpeg"></audio></div>
+    <div class="gift"><button onclick="displayModal()">Gift</button></div>
+  </div>
+
+<div id="container">
+ <div id="stage">
+   <div id="shape" class="cube backfaces" ondblclick="loadCanvas()">
+     <div class="plane one"></div>
+     <div class="plane two"></div>
+     <div class="plane three"></div>
+     <div class="plane four"></div>
+     <div class="plane five"></div>
+     <div class="plane six"></div>
+     <div class="plane seven"></div>
+     <div class="plane eight"></div>
+     <div class="plane nine"></div>
+     <div class="plane ten"></div>
+     <div class="plane eleven"></div>
+     <div class="plane twelve"></div>
+   </div>
+ </div>
+</div>
+
+ <!-- The Modal -->
+ <div id="myModal" class="modal">
+  <!-- Nội dung form đăng nhập -->
+  <div class="modal-content">
+    <div class = content> 
+      <p>Năm thứ 3 được mừng sinh nhật cùng em rồi nhỉ! ^^ <br>
+      Tuổi mới đến rồi, trưởng thành hơn nhưng đừng đánh mất sự hồn nhiên nhá <br>
+      Cảm ơn em vì đã ở bên a suốt những thời gian qua! <br>
+      Tiếp tục nắm tay a nhá ^^. Love you so much :3 </p>
+      </div>
+  </div>
+</div>
+
+<script>
+  //Music
+ var audios = ["Viet Nam_ Di_ Hon Va Yeu - Pham Hong Phu.m4a", "Anh thuong em nhat ma - La Log TiB.mp3"];
+
+var music = document.getElementById("player");
+var getSrc = document.getElementsByTagName("source");
+
+
+getSrc[0].src = "musics/" + audios[0];
+music.load();
+music.play();
+
+var attr_src = getSrc[0].getAttribute("src"); 
+attr_src = attr_src.replace("musics/", "");
+
+var index = audios.indexOf(attr_src);
+
+music.addEventListener('ended',function(){
+  if(index == -1 || index >= audios.length - 1) {
+    index = 0;
+  } else {
+    index = index + 1;
+  }
+  getSrc[0].src = "musics/" + audios[index];
+  music.load();
+  music.play();       
+  });
+
+</script>
+
+</body>
+</html>
